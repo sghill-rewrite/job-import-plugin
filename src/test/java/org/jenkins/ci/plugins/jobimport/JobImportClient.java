@@ -1,7 +1,7 @@
 package org.jenkins.ci.plugins.jobimport;
 
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-import com.gargoylesoftware.htmlunit.html.*;
+import org.htmlunit.FailingHttpStatusCodeException;
+import org.htmlunit.html.*;
 import org.jenkins.ci.plugins.jobimport.utils.Constants;
 import org.jvnet.hudson.test.JenkinsRule;
 
@@ -22,7 +22,7 @@ final class JobImportClient {
 
   void doQuerySubmit(String remoteUrl, boolean recursiveSearch) throws Exception {
     HtmlInput remoteUrlInput = (HtmlInput) currentPage.getElementsByName(Constants.REMOTE_URL_PARAM).get(0);
-    remoteUrlInput.setValueAttribute(remoteUrl);
+    remoteUrlInput.setValue(remoteUrl);
 
     HtmlCheckBoxInput recursiveSearchInput = (HtmlCheckBoxInput) currentPage.getElementsByName(Constants.RECURSIVE_PARAM).get(0);
     recursiveSearchInput.setChecked(recursiveSearch);
